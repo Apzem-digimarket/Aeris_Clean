@@ -95,7 +95,7 @@ p{margin:0}
   radial-gradient(900px 480px at 85% 10%,rgba(79,195,176,.18),transparent 60%),
   radial-gradient(700px 420px at 5% 90%,rgba(93,184,72,.14),transparent 60%),
   var(--surface)}
-#airCanvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#airCanvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}.hero-copy{position:relative;z-index:2}.hero-visual .float-chip{z-index:2}@media (min-width:961px){#airCanvas{-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.62) 44%,#000 60%);mask-image:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.62) 44%,#000 60%)}}@media (max-width:960px){#airCanvas{opacity:.7}}
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center;padding-block:72px 64px}
 .hero-copy{min-width:0}
 .hero h1{font-size:clamp(38px,5.6vw,66px);font-weight:780;font-stretch:104%;margin-top:18px;letter-spacing:-.02em}
@@ -439,7 +439,7 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--green);height:28
   <div class="wrap">
     <div class="grp">
       <span class="addr"><svg><use href="#i-pin"/></svg>Thirumullaivoyal, Avadi, Chennai - 600062</span>
-      <a href="mailto:venkatesh@apzem.com"><svg><use href="#i-mail"/></svg>venkatesh@apzem.com</a>
+      <a href="mailto:aerisclean.solutions@gmail.com"><svg><use href="#i-mail"/></svg>aerisclean.solutions@gmail.com</a>
     </div>
     <div class="grp">
       <a href="tel:+918124063355"><svg><use href="#i-phone"/></svg>(+91) 81240 63355</a>
@@ -1082,7 +1082,7 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--green);height:28
         <p class="lede">Tell us about your space and the work done there. We'll help you choose the right monitor and filtration for it.</p>
         <ul class="c-list">
           <li><span class="ic"><svg><use href="#i-phone"/></svg></span><span><small>Call us</small><a href="tel:+918124063355">(+91) 81240 63355</a></span></li>
-          <li><span class="ic"><svg><use href="#i-mail"/></svg></span><span><small>Email</small><a href="mailto:venkatesh@apzem.com">venkatesh@apzem.com</a></span></li>
+          <li><span class="ic"><svg><use href="#i-mail"/></svg></span><span><small>Email</small><a href="mailto:aerisclean.solutions@gmail.com">aerisclean.solutions@gmail.com</a></span></li>
           <li><span class="ic"><svg><use href="#i-pin"/></svg></span><span><small>Corporate</small><span>No.9, Balaji Nagar Industrial Estate, Thirumullaivoyal, Avadi, Chennai-600062, Tamil Nadu, India</span></span></li>
           <li><span class="ic"><svg><use href="#i-globe"/></svg></span><span><small>Web</small><span>www.aerisclean.in</span></span></li>
         </ul>
@@ -1117,7 +1117,7 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--green);height:28
           <span class="ok"><svg><use href="#i-check"/></svg></span>
           <h3 id="doneTitle">Thank you.</h3>
           <p id="doneSent" hidden>Your request has reached our team. We'll contact you shortly with specifications and pricing. For anything urgent, call <strong>(+91) 81240 63355</strong>.</p>
-          <p id="doneManual" hidden>We couldn't send your request automatically just now. Please send the details below to <strong>venkatesh@apzem.com</strong> or call <strong>(+91) 81240 63355</strong> and our team will take it from there.</p>
+          <p id="doneManual" hidden>We couldn't send your request automatically just now. Please send the details below to <strong>aerisclean.solutions@gmail.com</strong> or call <strong>(+91) 81240 63355</strong> and our team will take it from there.</p>
           <pre id="doneText"></pre>
           <div class="row">
             <button class="btn btn--primary" type="button" id="copyBtn"><svg><use href="#i-copy"/></svg>Copy details</button>
@@ -1151,7 +1151,7 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--green);height:28
         <div class="f-addr">
           <span>No.9, Balaji Nagar Industrial Estate, Thirumullaivoyal, Avadi, Chennai-600062, Tamil Nadu, India</span>
           <a href="tel:+918124063355">(+91) 81240 63355</a>
-          <a href="mailto:venkatesh@apzem.com">venkatesh@apzem.com</a>
+          <a href="mailto:aerisclean.solutions@gmail.com">aerisclean.solutions@gmail.com</a>
           <span>www.aerisclean.in</span>
         </div>
       </div>
@@ -1179,15 +1179,124 @@ input[type=range]{width:100%;margin-top:12px;accent-color:var(--green);height:28
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ls=document.getElementById('lungSvg');if(reduce&&ls&&ls.pauseAnimations){ls.pauseAnimations();}
 
-  /* hero air particles: dust drifting up and fading as it is "cleaned" */
-  var cv=document.getElementById('airCanvas'),ctx=cv.getContext('2d'),P=[],W=0,H=0,dpr=Math.min(window.devicePixelRatio||1,2);
-  function size(){var r=cv.parentElement.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
-  function mk(init){return{x:Math.random()*W,y:init?Math.random()*H:H+10,r:Math.random()*2.2+.8,v:Math.random()*.5+.15,d:(Math.random()-.5)*.3,c:Math.random()<.5?'93,184,72':'42,174,156'};}
-  function draw(){ctx.clearRect(0,0,W,H);P.forEach(function(p){var a=Math.max(0,Math.min(1,p.y/H))*.45;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba('+p.c+','+a+')';ctx.fill();});}
-  function tick(){P.forEach(function(p,i){p.y-=p.v;p.x+=p.d;if(p.y<-10)P[i]=mk(false);});draw();requestAnimationFrame(tick);}
-  size();for(var i=0;i<46;i++)P.push(mk(true));
-  window.addEventListener('resize',function(){size();});
-  if(reduce){draw();}else{tick();}
+  /* hero background: light-green bubbles labelled with air pollutants (PM2.5, VOC, NOx…) floating in 3D
+     (WebGL), drifting, slowly rotating and shifting with the mouse. Falls back to 2D bubbles without WebGL.
+     Tune: COUNT = number of bubbles, BASE = bubble size, SPEED = movement, HOVER = mouse follow. */
+  (function(){
+    var cv=document.getElementById('airCanvas');if(!cv)return;
+    var hero=cv.parentElement,dpr=Math.min(window.devicePixelRatio||1,2);
+    var WORDS=['PM2.5','PM1','PM10','VOC','NOx','SOx','CO','CO₂','O₃','TVOC','HCHO'];
+    var MAIN=6;                                    // the first 6 words appear twice as often
+    var FILLS=[['#D2F7A8','#7DDA58'],['#C2F08F','#5DB848'],['#DDF9BC','#8FD16F']];   // light green bubble shades
+    var TEXT='#0E3B1D', RING='rgba(35,122,53,.55)';
+    var COUNT=window.innerWidth<700?24:45, SPREAD=10, BASE=800, MIN_PX=26, MAX_PX=60, SPEED=0.25, HOVER=1.6;
+    var CELL=160, COLS=8, CELLS=WORDS.length*FILLS.length, ROWS=Math.ceil(CELLS/COLS);
+
+    function pickWord(){var r=Math.random()*(WORDS.length+MAIN);return r<MAIN*2?Math.floor(r/2):Math.floor(r-MAIN);}
+
+    function bubble(ctx,cx,cy,r,word,fill){
+      var g=ctx.createRadialGradient(cx-r*.35,cy-r*.4,r*.1,cx,cy,r);
+      g.addColorStop(0,fill[0]);g.addColorStop(1,fill[1]);
+      ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+      ctx.lineWidth=Math.max(1.5,r*.05);ctx.strokeStyle=RING;ctx.stroke();
+      ctx.beginPath();ctx.ellipse(cx-r*.38,cy-r*.45,r*.28,r*.15,-0.6,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,.55)';ctx.fill();
+      var fs=r*0.62;ctx.font='700 '+fs+'px "IBM Plex Mono","SFMono-Regular",Menlo,monospace';
+      var w=ctx.measureText(word).width;if(w>r*1.55){fs*=r*1.55/w;ctx.font='700 '+fs+'px "IBM Plex Mono","SFMono-Regular",Menlo,monospace';}
+      ctx.fillStyle=TEXT;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(word,cx,cy+fs*.04);
+    }
+
+    var gl=null;try{gl=cv.getContext('webgl',{alpha:true,antialias:false,premultipliedAlpha:true});}catch(e){}
+
+    if(!gl){   /* ---- fallback: 2D floating bubbles ---- */
+      var ctx=cv.getContext('2d'),B=[],W=0,H=0;
+      var size2d=function(){var r=hero.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);};
+      var draw2d=function(t){ctx.clearRect(0,0,W,H);B.forEach(function(b){bubble(ctx,b.x+Math.sin(t*.0004*SPEED*4+b.a)*16,b.y+Math.cos(t*.0003*SPEED*4+b.a)*12,b.r,WORDS[b.w],FILLS[b.f]);});};
+      size2d();for(var j=0;j<Math.round(COUNT*0.35);j++)B.push({x:Math.random()*W,y:Math.random()*H,r:16+Math.random()*16,a:Math.random()*6.28,w:pickWord(),f:(Math.random()*FILLS.length)|0});
+      window.addEventListener('resize',size2d);
+      if(reduce){draw2d(0);}else{(function loop(t){draw2d(t);requestAnimationFrame(loop);})(0);}
+      return;
+    }
+
+    /* ---- bubble sprite sheet (every word in every shade) ---- */
+    var sheet=document.createElement('canvas');sheet.width=CELL*COLS;sheet.height=CELL*ROWS;
+    function paintSheet(){
+      var c=sheet.getContext('2d');c.clearRect(0,0,sheet.width,sheet.height);
+      for(var w=0;w<WORDS.length;w++)for(var f=0;f<FILLS.length;f++){var k=w*FILLS.length+f;bubble(c,(k%COLS)*CELL+CELL/2,Math.floor(k/COLS)*CELL+CELL/2,CELL*.46,WORDS[w],FILLS[f]);}
+    }
+
+    /* ---- shaders ---- */
+    var VS='attribute vec3 position;attribute vec4 random;attribute vec2 cell;'+
+      'uniform mat4 uProj;uniform mat4 uModel;uniform float uTime;uniform float uSpread;uniform float uBase;uniform float uMin;uniform float uMax;uniform float uRatio;'+
+      'varying vec2 vCell;varying float vAlpha;'+
+      'void main(){vCell=cell;'+
+      ' vec3 p=position*uSpread;p.z*=0.8;float t=uTime;'+
+      ' p.x+=sin(t*random.z+6.2832*random.w)*mix(0.1,1.4,random.x);'+
+      ' p.y+=sin(t*random.y+6.2832*random.x)*mix(0.1,1.4,random.w);'+
+      ' p.z+=sin(t*random.w+6.2832*random.y)*mix(0.1,1.4,random.z);'+
+      ' vec4 mv=uModel*vec4(p,1.0);mv.z-=20.0;'+
+      ' float s=uBase*(0.85+0.3*random.x)/max(-mv.z,1.0);'+
+      ' vAlpha=mix(0.55,0.95,clamp((s-uMin)/(uMax-uMin),0.0,1.0));'+        // farther bubbles are fainter
+      ' gl_PointSize=clamp(s,uMin,uMax)*uRatio;'+
+      ' gl_Position=uProj*mv;}';
+    var FS='precision mediump float;uniform sampler2D uSheet;uniform vec2 uGrid;varying vec2 vCell;varying float vAlpha;'+
+      'void main(){vec4 c=texture2D(uSheet,(vCell+gl_PointCoord)/uGrid);if(c.a<0.01)discard;gl_FragColor=c*vAlpha;}';
+    function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
+    var prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));gl.linkProgram(prog);
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){if(window.console)console.warn('Particles: '+gl.getProgramInfoLog(prog));cv.style.display='none';return;}
+    gl.useProgram(prog);
+
+    /* ---- bubbles: random spots in a sphere, each with a word and shade ---- */
+    var pos=new Float32Array(COUNT*3),rnd=new Float32Array(COUNT*4),cel=new Float32Array(COUNT*2);
+    for(var i=0;i<COUNT;i++){
+      var x,y,z,l;do{x=Math.random()*2-1;y=Math.random()*2-1;z=Math.random()*2-1;l=x*x+y*y+z*z;}while(l>1||l===0);
+      var r=Math.cbrt(Math.random());pos.set([x*r,y*r,z*r],i*3);
+      rnd.set([Math.random(),Math.random(),Math.random(),Math.random()],i*4);
+      var k=pickWord()*FILLS.length+((Math.random()*FILLS.length)|0);cel.set([k%COLS,Math.floor(k/COLS)],i*2);
+    }
+    function attr(name,data,size){var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);var loc=gl.getAttribLocation(prog,name);gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,size,gl.FLOAT,false,0,0);}
+    attr('position',pos,3);attr('random',rnd,4);attr('cell',cel,2);
+    var U={};['uProj','uModel','uTime','uSpread','uBase','uMin','uMax','uRatio','uSheet','uGrid'].forEach(function(n){U[n]=gl.getUniformLocation(prog,n);});
+    gl.uniform1f(U.uSpread,SPREAD);gl.uniform1f(U.uBase,BASE);gl.uniform1f(U.uMin,MIN_PX);gl.uniform1f(U.uMax,MAX_PX);gl.uniform1f(U.uRatio,dpr);
+    gl.uniform1i(U.uSheet,0);gl.uniform2f(U.uGrid,COLS,ROWS);
+    gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA);gl.clearColor(0,0,0,0);
+
+    var tex=gl.createTexture();
+    function uploadSheet(){
+      paintSheet();
+      gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);
+      gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL,true);
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,sheet);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+    }
+    uploadSheet();
+    if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){uploadSheet();if(reduce)render(0);});}   // redraw once the web font has loaded
+
+    function perspective(fovDeg,aspect,near,far){var f=1/Math.tan(fovDeg*Math.PI/360),nf=1/(near-far);return new Float32Array([f/aspect,0,0,0,0,f,0,0,0,0,(far+near)*nf,-1,0,0,2*far*near*nf,0]);}
+    function model(rx,ry,rz,tx,ty){
+      var cx=Math.cos(rx),sx=Math.sin(rx),cy=Math.cos(ry),sy=Math.sin(ry),cz=Math.cos(rz),sz=Math.sin(rz);
+      return new Float32Array([cz*cy,sz*cy,-sy,0, cz*sy*sx-sz*cx,sz*sy*sx+cz*cx,cy*sx,0, cz*sy*cx+sz*sx,sz*sy*cx-cz*sx,cy*cx,0, tx,ty,0,1]);
+    }
+    function resize(){var r=hero.getBoundingClientRect(),w=Math.max(1,Math.round(r.width*dpr)),h=Math.max(1,Math.round(r.height*dpr));if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h;}gl.viewport(0,0,w,h);gl.uniformMatrix4fv(U.uProj,false,perspective(32,r.width/Math.max(1,r.height),0.1,100));}
+
+    var mouse={x:0,y:0},smooth={x:0,y:0},rotZ=0,last=0,elapsed=0,visible=true,frame=null;
+    window.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();if(e.clientY<r.top||e.clientY>r.bottom)return;mouse.x=((e.clientX-r.left)/r.width)*2-1;mouse.y=-(((e.clientY-r.top)/r.height)*2-1);},{passive:true});
+    function render(now){
+      var dt=last?Math.min(now-last,50):16;last=now;elapsed+=dt*SPEED;
+      smooth.x+=(mouse.x-smooth.x)*0.05;smooth.y+=(mouse.y-smooth.y)*0.05;
+      rotZ+=0.004*SPEED*dt/16;                       // gentle spin so the words stay readable
+      gl.uniform1f(U.uTime,elapsed*0.001);
+      gl.uniformMatrix4fv(U.uModel,false,model(Math.sin(elapsed*0.0002)*0.1,Math.cos(elapsed*0.0005)*0.15,rotZ,-smooth.x*HOVER,-smooth.y*HOVER));
+      gl.clear(gl.COLOR_BUFFER_BIT);gl.drawArrays(gl.POINTS,0,COUNT);
+    }
+    function loop(now){render(now);frame=visible&&!document.hidden?requestAnimationFrame(loop):null;}
+    function start(){if(!frame&&!reduce){last=0;frame=requestAnimationFrame(loop);}}
+    resize();
+    window.addEventListener('resize',function(){resize();if(reduce)render(0);});
+    document.addEventListener('visibilitychange',start);
+    if('IntersectionObserver' in window){new IntersectionObserver(function(en){visible=en[0].isIntersecting;if(visible)start();}).observe(hero);}
+    if(reduce){render(0);}else{start();}
+  })();
 
   /* ---------- simulator ---------- */
   var pmR=document.getElementById('pmRange'),thR=document.getElementById('thRange'),pmO=document.getElementById('pmOut'),thO=document.getElementById('thOut');
