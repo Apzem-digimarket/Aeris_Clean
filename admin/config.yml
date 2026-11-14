@@ -1,0 +1,277 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+#
+# Online admin for www.aerisclean.in → https://www.aerisclean.in/admin/
+# Sign in with a GitHub account that can write to the repository.
+# Saving commits to the "main" branch; the GitHub Action in .github/workflows/deploy.yml
+# then rebuilds index.html from _cms/template.html + _cms/data/*.json and publishes the site (1–2 minutes).
+
+backend:
+  name: github
+  repo: Apzem-digimarket/Aeris_Clean
+  branch: main
+  # Sign in with a GitHub access token (free, no login server needed).
+  auth_methods: [token]
+
+app_title: Aeris Clean Admin
+logo:
+  src: /admin/emblem.webp
+
+site_url: https://www.aerisclean.in
+display_url: https://www.aerisclean.in
+
+# New pictures are converted to WebP, resized to at most 1600 px and stored in assets/products/.
+media_folder: /assets/products
+public_folder: /assets/products
+media_libraries:
+  default:
+    config:
+      max_file_size: 10485760
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1600
+          height: 1600
+
+collections:
+  # ---------------------------------------------------------------- Products
+  - name: products
+    label: Products
+    label_singular: Product
+    description: >-
+      Each product gets a full section in "Our products" and a card at the top of it.
+      Drag products to change their order on the page.
+    file: /_cms/data/products.json
+    identifier_field: title
+    summary: "{{title}} {{titleAccent}}"
+    thumbnail: image
+    editor:
+      preview: false
+    fields:
+      - name: visible
+        label: Show on website
+        widget: boolean
+        default: true
+      - name: title
+        label: Title
+        hint: "Main name, e.g. AERIS or APZEM-BTFH-700."
+      - name: titleAccent
+        label: Title — green part
+        required: false
+        hint: "Optional. Shown in green after the title, e.g. SENSE."
+      - name: kicker
+        label: Product type
+        required: false
+        hint: "Small label above the title, e.g. Air Quality Monitor."
+      - name: subtitle
+        label: One-line description
+        widget: text
+        required: false
+        hint: "Shown under the title and on the product card."
+      - name: description
+        label: Longer description
+        widget: text
+        required: false
+
+      - name: image
+        label: Product photo
+        widget: image
+        required: false
+      - name: alt
+        label: Photo description
+        required: false
+        hint: "Describes the photo for screen readers and Google, e.g. Bench top fume extractor on a workbench."
+      - name: cardImage
+        label: Card picture
+        widget: image
+        required: false
+        hint: "Optional. Used on the product card instead of the product photo."
+      - name: mediaLabel
+        label: Label above the picture
+        required: false
+      - name: taglineBold
+        label: Tagline — bold part
+        required: false
+        hint: "Shown under the picture, e.g. Clean Air."
+      - name: taglineText
+        label: Tagline — rest
+        required: false
+        hint: "e.g. Healthy Environment."
+      - name: customMedia
+        label: Custom drawing (advanced)
+        widget: text
+        required: false
+        hint: "SVG/HTML shown instead of the product photo. Leave empty to show the photo. Scripts are not allowed."
+
+      - name: features
+        label: Key features
+        label_singular: Feature
+        widget: list
+        required: false
+        field:
+          name: feature
+          label: Feature
+          widget: string
+      - name: highlights
+        label: Highlights
+        label_singular: Highlight
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{title}}"
+        fields:
+          - { name: title, label: Heading }
+          - { name: text, label: Text, widget: text, required: false }
+
+      - name: specsTitle
+        label: Specifications heading
+        required: false
+        default: Technical Specifications
+      - name: specs
+        label: Specifications
+        label_singular: Specification
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{label}}: {{value}}"
+        fields:
+          - { name: label, label: Name, hint: "e.g. Airflow" }
+          - { name: value, label: Value, hint: "e.g. 700 m³/h" }
+
+      - name: applicationsTitle
+        label: Applications heading
+        required: false
+        default: Typical Applications
+      - name: applications
+        label: Applications
+        label_singular: Application
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{title}}"
+        thumbnail: image
+        fields:
+          - { name: image, label: Picture, widget: image, required: false }
+          - { name: alt, label: Picture description, required: false }
+          - { name: title, label: Title }
+          - { name: text, label: Text, required: false }
+
+      - name: quoteName
+        label: Name in the quote form
+        required: false
+        hint: "How this product appears in the quote form's product list. Leave empty to use the title and product type."
+      - name: secondaryLabel
+        label: Second button — text
+        required: false
+        hint: "Optional button next to “Request a quote”, e.g. Why soldering fumes matter."
+      - name: secondaryLink
+        label: Second button — link
+        required: false
+        hint: "A section of the page (#contact) or a web address (https://…)."
+      - name: slug
+        label: Section address
+        required: false
+        hint: "Optional. Short name used in links to this product, e.g. btfh-700 → aerisclean.in/#btfh-700. Leave empty to create it from the title."
+      - name: id
+        label: Product ID
+        widget: uuid
+        hint: "Created automatically. Used to link “We specialize in” cards to this product."
+
+  # ---------------------------------------------------------------- We specialize in
+  - name: range
+    label: We specialize in
+    label_singular: Card
+    description: >-
+      The cards under "We specialize in". They are also listed in the footer and,
+      if switched on, in the quote form's product list.
+    file: /_cms/data/range.json
+    identifier_field: title
+    summary: "{{title}}"
+    thumbnail: image
+    editor:
+      preview: false
+    fields:
+      - name: visible
+        label: Show on website
+        widget: boolean
+        default: true
+      - name: title
+        label: Title
+      - name: text
+        label: Text
+        widget: text
+        required: false
+      - name: image
+        label: Picture
+        widget: image
+        required: false
+        hint: "Optional. When empty, the icon below is shown."
+      - name: icon
+        label: Icon
+        widget: select
+        required: false
+        default: i-fan
+        options:
+          - { label: Touch screen, value: i-touch }
+          - { label: Room, value: i-room }
+          - { label: Cabin, value: i-cabin }
+          - { label: Fan, value: i-fan }
+          - { label: Filter, value: i-filter }
+          - { label: Air flow, value: i-wind }
+          - { label: Particles, value: i-particles }
+          - { label: Shield, value: i-shield }
+          - { label: Gear, value: i-gear }
+          - { label: Power, value: i-bolt }
+          - { label: Temperature, value: i-temp }
+          - { label: Sound level, value: i-db }
+          - { label: Wi-Fi, value: i-wifi }
+          - { label: Lungs, value: i-lungs }
+          - { label: Heart, value: i-heart }
+      - name: link
+        label: Footer link goes to product
+        widget: relation
+        required: false
+        collection: products
+        value_field: id
+        display_fields: ["{{title}} {{titleAccent}}"]
+        search_fields: [title, titleAccent]
+        hint: "Optional. Without a product, the footer link goes to the products section."
+      - name: inQuoteForm
+        label: List in the quote form
+        widget: boolean
+        default: true
+      - name: id
+        label: Card ID
+        widget: uuid
+        hint: Created automatically.
+
+  # ---------------------------------------------------------------- Section headings
+  - name: settings
+    label: Section text
+    editor:
+      preview: false
+    files:
+      - name: sections
+        label: Section headings
+        file: /_cms/data/sections.json
+        fields:
+          - name: products
+            label: '"Our products" section'
+            widget: object
+            fields:
+              - { name: eyebrow, label: Small heading, required: false }
+              - { name: title, label: Heading }
+              - { name: lede, label: Intro text, widget: text, required: false }
+              - name: showCards
+                label: Show product cards
+                widget: boolean
+                default: true
+                hint: The row of product cards at the top of the section.
+          - name: range
+            label: '"We specialize in" section'
+            widget: object
+            fields:
+              - { name: eyebrow, label: Small heading, required: false }
+              - { name: title, label: Heading }
+              - { name: lede, label: Intro text, widget: text, required: false }

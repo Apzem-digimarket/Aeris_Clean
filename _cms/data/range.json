@@ -1,0 +1,52 @@
+[
+    {
+        "id": "r1",
+        "visible": true,
+        "title": "Air Quality Monitor",
+        "text": "See what's in the air, the moment it changes.",
+        "icon": "i-touch",
+        "image": "",
+        "link": "aeris-sense",
+        "inQuoteForm": false
+    },
+    {
+        "id": "r2",
+        "visible": true,
+        "title": "Room air filtration system",
+        "text": "Fresher air across the whole room, all day long.",
+        "icon": "i-room",
+        "image": "",
+        "link": "",
+        "inQuoteForm": true
+    },
+    {
+        "id": "r3",
+        "visible": true,
+        "title": "Dust-free cabins",
+        "text": "A clean space for work that can't afford a speck.",
+        "icon": "i-cabin",
+        "image": "",
+        "link": "",
+        "inQuoteForm": true
+    },
+    {
+        "id": "r4",
+        "visible": true,
+        "title": "Portable Dust Collector systems",
+        "text": "Dust control that moves with your work.",
+        "icon": "",
+        "image": "/assets/products/range-portable-dust-collector-systems.webp",
+        "link": "",
+        "inQuoteForm": true
+    },
+    {
+        "id": "r5",
+        "visible": true,
+        "title": "Portable Fume Extractors systems",
+        "text": "Fumes removed right where they start.",
+        "icon": "",
+        "image": "/assets/products/range-portable-fume-extractors-systems.webp",
+        "link": "btfh-700",
+        "inQuoteForm": true
+    }
+]

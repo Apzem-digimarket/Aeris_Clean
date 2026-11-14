@@ -1,0 +1,58 @@
+# Rebuilds www.aerisclean.in after every change to the main branch,
+# including edits saved in the online admin (https://www.aerisclean.in/admin/).
+#
+#   1. php _cms/build.php  → index.html from _cms/template.html + _cms/data/*.json
+#      (stops with an error if the content is invalid, so the live site keeps its last good version)
+#   2. If index.html changed, commits it back to main.
+#   3. Asks GitHub Pages (Settings → Pages: "Deploy from a branch", main) to publish the new version.
+name: Rebuild website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: rebuild-website
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build index.html from the content
+        run: |
+          php --version | head -1
+          php _cms/build.php
+
+      - name: Commit the new page
+        id: commit
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "index.html is already up to date."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Rebuild page from content changes"
+          pushed=false
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then pushed=true; break; fi
+            sleep 5
+          done
+          [ "$pushed" = true ] || { echo "Could not push the rebuilt page."; exit 1; }
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Publish with GitHub Pages
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" --jq .status

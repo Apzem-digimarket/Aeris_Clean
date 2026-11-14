@@ -1,0 +1,13 @@
+{
+    "products": {
+        "eyebrow": "Our products",
+        "title": "Built to protect the people who keep your work running.",
+        "lede": "One watches the air. The other cleans it. Together they turn clean air from a hope into a routine.",
+        "showCards": true
+    },
+    "range": {
+        "eyebrow": "We specialize in",
+        "title": "A complete circle of clean air.",
+        "lede": "From the first reading to the last particle captured, every system we make has one purpose: air your people can breathe without worry."
+    }
+}

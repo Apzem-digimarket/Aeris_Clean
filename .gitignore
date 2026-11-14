@@ -149,3 +149,11 @@ vite.config.ts.timestamp-*
 .turbo
 
 .DS_Store
+
+# Website admin (_cms): private, machine-specific files — never commit
+_cms/data/auth.php
+_cms/data/login-attempts.php
+_cms/data/last-publish.txt
+_cms/data/*.log
+_cms/data/*.tmp
+.DS_Store

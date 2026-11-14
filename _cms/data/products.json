@@ -1,0 +1,194 @@
+[
+    {
+        "id": "aeris-sense",
+        "slug": "aeris-sense",
+        "visible": true,
+        "kicker": "Air Quality Monitor",
+        "title": "AERIS",
+        "titleAccent": "SENSE",
+        "subtitle": "Real-Time Air Quality Monitoring for Healthier and Safer Spaces.",
+        "description": "Aeris Sense is a compact and intelligent air quality monitor designed to measure particulate matter, temperature and humidity in real time. It helps you understand your indoor air quality and take timely action for a cleaner and healthier environment.",
+        "mediaLabel": "Dimensions",
+        "image": "",
+        "alt": "",
+        "customMedia": "<figure class=\"dimfig\">\n          <svg viewBox=\"0 0 520 320\" role=\"img\" aria-labelledby=\"dimT\">\n            <title id=\"dimT\">Aeris Sense dimensions: 220 mm long, 150 mm wide, 50 mm deep</title>\n            <defs>\n              <marker id=\"arw\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,1 L9,5 L0,9 z\" fill=\"#1F4E89\"/></marker>\n              <filter id=\"dsh\" x=\"-10%\" y=\"-10%\" width=\"120%\" height=\"130%\"><feDropShadow dx=\"0\" dy=\"8\" stdDeviation=\"9\" flood-color=\"#10293A\" flood-opacity=\".14\"/></filter>\n            </defs>\n            <g font-family=\"IBM Plex Mono, ui-monospace, monospace\" font-size=\"10.5\" font-weight=\"600\" letter-spacing=\"1.6\" fill=\"#7A8B95\" text-anchor=\"middle\">\n              <text x=\"210\" y=\"22\">FRONT VIEW</text><text x=\"455\" y=\"22\">SIDE VIEW</text>\n            </g>\n            <!-- front -->\n            <rect x=\"56\" y=\"36\" width=\"308\" height=\"210\" rx=\"26\" fill=\"#FFFFFF\" stroke=\"#A9BEC7\" stroke-width=\"2\" filter=\"url(#dsh)\"/>\n            <text x=\"210\" y=\"66\" text-anchor=\"middle\" font-family=\"Archivo, Arial, sans-serif\" font-size=\"19\" font-weight=\"800\" fill=\"#10293A\">AERIS <tspan fill=\"#5DB848\" font-weight=\"600\">SENSE</tspan></text>\n            <text x=\"210\" y=\"82\" text-anchor=\"middle\" font-family=\"IBM Plex Sans, Arial, sans-serif\" font-size=\"10\" font-style=\"italic\" fill=\"#4D6270\">Air Quality Monitor</text>\n            <rect x=\"92\" y=\"94\" width=\"236\" height=\"134\" rx=\"8\" fill=\"#0E1B24\"/>\n            <g font-family=\"IBM Plex Mono, monospace\">\n              <text x=\"104\" y=\"112\" font-size=\"10\" font-weight=\"700\" fill=\"#FFFFFF\" font-family=\"Archivo, Arial, sans-serif\">APZEM</text>\n              <text x=\"316\" y=\"112\" text-anchor=\"end\" font-size=\"8\" fill=\"#A9BDB6\">23-10-2026  14:25</text>\n              <g fill=\"none\" stroke-width=\"4\"><circle cx=\"146\" cy=\"152\" r=\"21\" stroke=\"#6CCB55\"/><circle cx=\"210\" cy=\"152\" r=\"21\" stroke=\"#6CCB55\"/><circle cx=\"274\" cy=\"152\" r=\"21\" stroke=\"#F0A02B\"/></g>\n              <g text-anchor=\"middle\" fill=\"#FFFFFF\"><text x=\"146\" y=\"146\" font-size=\"6.5\" fill=\"#A9BDB6\">PM1.0</text><text x=\"146\" y=\"159\" font-size=\"12\" font-weight=\"600\">12</text>\n              <text x=\"210\" y=\"146\" font-size=\"6.5\" fill=\"#A9BDB6\">PM2.5</text><text x=\"210\" y=\"159\" font-size=\"12\" font-weight=\"600\">28</text>\n              <text x=\"274\" y=\"146\" font-size=\"6.5\" fill=\"#A9BDB6\">PM10</text><text x=\"274\" y=\"159\" font-size=\"12\" font-weight=\"600\">56</text></g>\n              <text x=\"106\" y=\"200\" font-size=\"7.5\" fill=\"#A9BDB6\">Temperature</text><text x=\"106\" y=\"214\" font-size=\"11\" font-weight=\"600\" fill=\"#FFFFFF\">26.4 °C</text>\n              <text x=\"222\" y=\"200\" font-size=\"7.5\" fill=\"#A9BDB6\">Humidity</text><text x=\"222\" y=\"214\" font-size=\"11\" font-weight=\"600\" fill=\"#FFFFFF\">62 %</text>\n            </g>\n            <!-- side -->\n            <rect x=\"420\" y=\"36\" width=\"70\" height=\"210\" rx=\"14\" fill=\"#FFFFFF\" stroke=\"#A9BEC7\" stroke-width=\"2\" filter=\"url(#dsh)\"/>\n            <g stroke=\"#B9CBD3\" stroke-width=\"3.5\" stroke-linecap=\"round\"><path d=\"M440,112h30M440,121h30M440,130h30M440,139h30M440,148h30M440,157h30M440,166h30\"/></g>\n            <!-- dimension lines -->\n            <g stroke=\"#1F4E89\" stroke-width=\"1.4\" fill=\"none\">\n              <path d=\"M56,252v26M364,252v26M420,252v26M490,252v26M26,36h22M26,246h22\" opacity=\".45\"/>\n              <path d=\"M60,270H360\" marker-start=\"url(#arw)\" marker-end=\"url(#arw)\"/>\n              <path d=\"M424,270H486\" marker-start=\"url(#arw)\" marker-end=\"url(#arw)\"/>\n              <path d=\"M34,40V242\" marker-start=\"url(#arw)\" marker-end=\"url(#arw)\"/>\n            </g>\n            <g font-family=\"IBM Plex Mono, monospace\" font-size=\"13\" font-weight=\"600\" fill=\"#1F4E89\" text-anchor=\"middle\">\n              <text x=\"210\" y=\"296\">220 mm</text>\n              <text x=\"455\" y=\"296\">50 mm</text>\n              <text transform=\"translate(18,141) rotate(-90)\">150 mm</text>\n            </g>\n          </svg>\n        </figure>",
+        "taglineBold": "Clean Air",
+        "taglineText": "Healthy Life",
+        "features": [
+            "Accurate PM1, PM2.5, PM10, Temperature & Humidity monitoring",
+            "Web-based remote viewing (PC, tablet or TV)",
+            "5\" touch display with clear visual indicators",
+            "Flexible measurement ranges (0–1,000 / 0–2,000 / 0–5,000 µg/m³)",
+            "Data logging – Anytime access",
+            "Automatic output signal for dust collectors and fume extractor",
+            "Compact and wall-mounted design"
+        ],
+        "highlights": [],
+        "specsTitle": "Specifications",
+        "specs": [
+            {
+                "label": "Model",
+                "value": "Aeris Sense"
+            },
+            {
+                "label": "Dimensions (L x W x H)",
+                "value": "220 x 150 x 50 mm"
+            },
+            {
+                "label": "Measurement ranges",
+                "value": "0 – 1,000 µg/m³ / 0 – 2,000 µg/m³ / 0 – 5,000 µg/m³"
+            },
+            {
+                "label": "Display",
+                "value": "5-inch Touch Display"
+            },
+            {
+                "label": "Parameters",
+                "value": "PM1, PM2.5, PM10, Temperature and Humidity"
+            },
+            {
+                "label": "Data logging",
+                "value": "Historical data accessible at any time"
+            },
+            {
+                "label": "Power supply",
+                "value": "220 V AC, 2.5 A"
+            },
+            {
+                "label": "MOC",
+                "value": "ABS Plastic, Stainless Steel (SS), Aluminum (as per requirement)"
+            }
+        ],
+        "applicationsTitle": "",
+        "applications": [],
+        "secondaryLabel": "Try the live demo",
+        "secondaryLink": "#demo",
+        "quoteName": "Aeris Sense - Air Quality Monitor",
+        "cardImage": "/assets/products/aeris-sense-card.webp"
+    },
+    {
+        "id": "btfh-700",
+        "slug": "btfh-700",
+        "visible": true,
+        "kicker": "Bench Top Dry Filter",
+        "title": "APZEM-BTFH-700",
+        "titleAccent": "",
+        "subtitle": "Efficient fume extraction and filtration for soldering processes to ensure a cleaner and healthier work environment.",
+        "description": "",
+        "mediaLabel": "",
+        "image": "/assets/products/btfh-700.webp",
+        "alt": "APZEM-BTFH-700 bench top dry filter fume extractor",
+        "customMedia": "",
+        "taglineBold": "Clean Air",
+        "taglineText": "Healthy Environment",
+        "features": [],
+        "highlights": [
+            {
+                "title": "Effective Fume Capture",
+                "text": "Captures soldering fumes, smoke and fine particles at source."
+            },
+            {
+                "title": "3-Stage Filtration System",
+                "text": "Synthetic Fiber + HEPA + Activated Carbon"
+            },
+            {
+                "title": "Energy Efficient",
+                "text": "EC fans with volume control"
+            },
+            {
+                "title": "Low Noise Operation",
+                "text": "< 65 dB(A) @ 1 m distance"
+            }
+        ],
+        "specsTitle": "Technical Specifications",
+        "specs": [
+            {
+                "label": "Model",
+                "value": "APZEM-BTFH-700"
+            },
+            {
+                "label": "Type",
+                "value": "Bench Top Dry Filter"
+            },
+            {
+                "label": "Dimensions (L × D × H)",
+                "value": "800 × 700 × 1000 mm"
+            },
+            {
+                "label": "Working Area",
+                "value": "Approx. 750 mm (W) × 700 mm (D) × 500 mm (H)"
+            },
+            {
+                "label": "Construction",
+                "value": "1.2 mm thick GI, powder-coated finish"
+            },
+            {
+                "label": "Filtration System",
+                "value": "3-Stage: Synthetic Fiber + HEPA filter + Activated Carbon of 15 kgs"
+            },
+            {
+                "label": "Filtration Efficiency",
+                "value": "> 95% for fine particles: > 10 µm – Synthetic media; 99.97% for 0.3 microns – HEPA filter"
+            },
+            {
+                "label": "Airflow Capacity",
+                "value": "Approx. 500 CFM"
+            },
+            {
+                "label": "Face Velocity",
+                "value": "~ 0.8 m/s"
+            },
+            {
+                "label": "Exhaust Blower",
+                "value": "Energy efficient EC fans with Volume control"
+            },
+            {
+                "label": "Motor",
+                "value": "550 watts – single phase power supply"
+            },
+            {
+                "label": "Speed Control",
+                "value": "EC type"
+            },
+            {
+                "label": "Noise Level",
+                "value": "< 65 dB(A) @ 1 m distance"
+            },
+            {
+                "label": "Optional Add-ons",
+                "value": "SS construction / Explosion-proof blower / FRP coating"
+            }
+        ],
+        "applicationsTitle": "Typical Applications",
+        "applications": [
+            {
+                "image": "/assets/products/btfh-700-app-1.webp",
+                "alt": "Automated soldering station",
+                "title": "Soldering Stations",
+                "text": "Manual / Automated Soldering"
+            },
+            {
+                "image": "/assets/products/btfh-700-app-2.webp",
+                "alt": "Soldering iron tip with fume rising from a circuit board",
+                "title": "Desoldering & Rework",
+                "text": "Fume extraction during desoldering operations"
+            },
+            {
+                "image": "/assets/products/btfh-700-app-3.webp",
+                "alt": "Close-up of a printed circuit board",
+                "title": "Electronics Assembly",
+                "text": "PCB assembly and repair work"
+            },
+            {
+                "image": "/assets/products/btfh-700-app-4.webp",
+                "alt": "Hands soldering a circuit with visible fume",
+                "title": "Solder Wire Fumes",
+                "text": "Capture of flux and soldering fumes"
+            }
+        ],
+        "secondaryLabel": "Why soldering fumes matter",
+        "secondaryLink": "#soldering-risks",
+        "quoteName": "APZEM-BTFH-700 - Bench Top Dry Filter",
+        "cardImage": ""
+    }
+]
